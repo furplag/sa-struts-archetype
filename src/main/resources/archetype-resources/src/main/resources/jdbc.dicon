@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN" "http://www.seasar.org/dtd/components24.dtd">
+<components namespace="jdbc">
+  <include path="jta.dicon"/>
+#if (!$databaseType.matches("(?i)h2(db|database)?|my(sql)|orcl|oracle|pg|postgre(s|sql)?"))##
+  <!-- Notice
+    [${databaseType}] not support furplag/sa-struts-archetype.
+    see [src/test/resources/jdbc.dicon.default] and configure it your own.
+  -->
+#else##
+  <component name="xaDataSource" class="org.seasar.extension.dbcp.impl.XADataSourceImpl">
+#if ($databaseType.matches("(?i)h2(db|database)?"))##
+    <property name="driverClassName">"org.h2.Driver"</property>
+#end##
+#if ($databaseType.matches("(?i)my(sql)?"))##
+    <property name="driverClassName">"com.mysql.jdbc.Driver"</property>
+#end##
+#if ($databaseType.matches("(?i)orcl|oracle?"))##
+  <!-- Notice
+    oracle-jdbc-driver not found on maven-repository yet.
+    Add the OJDBC-driver in this project on your own.
+  -->
+    <property name="driverClassName">"oracle.jdbc.driver.OracleDriver"</property>
+#end##
+#if ($databaseType.matches("(?i)pg|postgre(s|sql)?"))##
+    <property name="driverClassName">"org.postgresql.Driver"</property>
+#end##
+    <property name="URL">"${jdbcConnectionString}"</property>
+    <property name="user">"${databaseUser}"</property>
+    <property name="password">"${databasePasswd}"</property>
+  </component>
+
+  <component name="connectionPool" class="org.seasar.extension.dbcp.impl.ConnectionPoolImpl">
+    <property name="timeout">60</property>
+    <property name="maxPoolSize">10</property>
+    <property name="allowLocalTx">true</property>
+    <destroyMethod name="close"/>
+  </component>
+  <component name="DataSource" class="org.seasar.extension.dbcp.impl.DataSourceImpl" />
+#end##
+</components>

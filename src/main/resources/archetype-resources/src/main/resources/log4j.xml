@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//Apache Software Foundation//DTD Log4J Configuration 1.0//EN"
+    "http://renga.googlecode.com/svn-history/r4/vendor/logging-log4j-1.2.14/docs/api/org/apache/log4j/xml/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+  <appender class="org.apache.log4j.ConsoleAppender" name="C">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param value="%-5p %d [%t] %m%n" name="ConversionPattern" />
+    </layout>
+    <filter class="org.apache.log4j.varia.StringMatchFilter">
+      <param name="StringToMatch" value="key = 'expression'" />
+      <param name="AcceptOnMatch" value="false" />
+    </filter>
+    <filter class="org.apache.log4j.varia.StringMatchFilter">
+      <param name="StringToMatch" value="key = 'from code T1_ order by'" />
+      <param name="AcceptOnMatch" value="false" />
+    </filter>
+  </appender>
+  <appender class="org.apache.log4j.DailyRollingFileAppender" name="F">
+    <param value="'.'yyyy-MM-dd" name="DatePattern" />
+    <param value="${catalina.home}/logs/${artifactId}/app.log" name="File" />
+    <param value="true" name="Append" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param value="%-5p %d [%t] %m%n" name="ConversionPattern" />
+    </layout>
+    <filter class="org.apache.log4j.varia.StringMatchFilter">
+      <param name="StringToMatch" value="key = 'expression'" />
+      <param name="AcceptOnMatch" value="false" />
+    </filter>
+    <filter class="org.apache.log4j.varia.StringMatchFilter">
+      <param name="StringToMatch" value="key = 'from code T1_ order by'" />
+      <param name="AcceptOnMatch" value="false" />
+    </filter>
+  </appender>
+  <logger additivity="false" name="${package}">
+    <level value="info" />
+    <appender-ref ref="C" />
+    <appender-ref ref="F" />
+    </logger>
+  <logger additivity="false" name="jp.furplag.sastruts.extension">
+    <level value="info" />
+    <appender-ref ref="C" />
+    <appender-ref ref="F" />
+    </logger>
+  <logger additivity="false" name="jp.furplag.struts.initializer">
+    <level value="info" />
+    <appender-ref ref="C" />
+    <appender-ref ref="F" />
+  </logger>
+  <logger additivity="false" name="org.seasar">
+    <level value="warn" />
+    <appender-ref ref="C" />
+    <appender-ref ref="F" />
+    </logger>
+  <logger additivity="false" name="org.seasar.extension.jdbc">
+    <level value="debug" />
+    <appender-ref ref="C" />
+    <appender-ref ref="F" />
+    </logger>
+  <root>
+    <level value="info" />
+    <appender-ref ref="C" />
+    <appender-ref ref="F" />
+    </root>
+</log4j:configuration>
