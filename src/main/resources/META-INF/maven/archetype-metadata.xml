@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor name="sa-struts-archetype">
+  <requiredProperties>
+    <requiredProperty key="legacyArchitecture">
+      <defaultValue>false</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="sessionIntervalMinutes">
+      <defaultValue>30</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="sessionResuscitate">
+      <defaultValue>true</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="noJS">
+      <defaultValue>false</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="jquery">
+      <defaultValue>true</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="bootstrap">
+      <defaultValue>true</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="modernizr">
+      <defaultValue>true</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="databaseType">
+      <defaultValue>postgreSQL</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="jdbcConnectionString">
+      <defaultValue>jdbc:postgresql://localhost:5432/database</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="databaseUser">
+      <defaultValue>user</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="databasePasswd">
+      <defaultValue>passwd</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="launchExternalProps">
+      <defaultValue>false</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="launchScheduler">
+      <defaultValue>false</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
+  <fileSets>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>.tomcatplugin</include>
+        <include>LICENSE</include>
+        <include>s2jdbc-gen-build.xml</include>
+        <include>bower.json</include>
+        <include>Gruntfile.js</include>
+        <include>package.json</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>.settings</directory>
+      <includes>
+        <include>**/*</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>js</directory>
+      <includes>
+        <include>**/*</include>
+        <include>__artifactId__.js</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>less</directory>
+      <includes>
+        <include>**/*</include>
+        <include>__artifactId__.less</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="ISO-8859-1">
+      <directory>licenses</directory>
+      <includes>
+        <include>**/*.html</include>
+        <include>**/*.txt</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/java/__packageInPathFormat__/entity</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/java/__packageInPathFormat__/form</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/java/__packageInPathFormat__/logic</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/java/__packageInPathFormat__/service</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/java/__packageInPathFormat__/service/entity</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/java/__packageInPathFormat__/sql</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/java/__packageInPathFormat__/task</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/*.default</include>
+        <include>**/*.dicon</include>
+        <include>**/*.sql</include>
+        <include>**/*.txt</include>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="ISO-8859-1">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/webapp</directory>
+      <includes>
+        <include>**/*.jsp</include>
+        <include>**/*.html</include>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/webapp/css</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/webapp/fonts</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/webapp/img</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/webapp/js</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/webapp/misc</directory>
+    </fileSet>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/test/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/java/__packageInPathFormat__/action</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/java/__packageInPathFormat__/dto</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/java/__packageInPathFormat__/entity</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/java/__packageInPathFormat__/form</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/java/__packageInPathFormat__/interceptor</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/java/__packageInPathFormat__/logic</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/java/__packageInPathFormat__/service</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/java/__packageInPathFormat__/service/entity</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/java/__packageInPathFormat__/task</directory>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/resources</directory>
+      <includes>
+        <include>**/*.dicon</include>
+        <include>**/*.txt</include>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="ISO-8859-1">
+      <directory>src/test/resources</directory>
+      <includes>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/integration/resources</directory>
+      <includes>
+        <include>**/*.dicon</include>
+        <include>**/*.txt</include>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="ISO-8859-1">
+      <directory>src/integration/resources</directory>
+      <includes>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/production/resources</directory>
+      <includes>
+        <include>**/*.dicon</include>
+        <include>**/*.txt</include>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="ISO-8859-1">
+      <directory>src/production/resources</directory>
+      <includes>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>

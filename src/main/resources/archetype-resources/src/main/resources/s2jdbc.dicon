@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN" "http://www.seasar.org/dtd/components24.dtd">
+<components>
+  <include path="jdbc.dicon" />
+  <include path="s2jdbc-internal.dicon" />
+  <component name="jdbcManager" class="org.seasar.extension.jdbc.manager.JdbcManagerImpl">
+#if (!$databaseType.matches("(?i)h2(db|database)?|my(sql)|orcl|oracle|pg|postgre(s|sql)?"))##
+  <!-- Notice
+    [${databaseType}] not support furplag/sa-struts-archetype.
+    see [src/test/resources/jdbc.dicon.default] and configure it your own.
+  -->
+#else##
+    <property name="maxRows">0</property>
+    <property name="fetchSize">0</property>
+    <property name="queryTimeout">0</property>
+#if ($databaseType.matches("(?i)h2(db|database)?"))##
+    <property name="dialect">h2Dialect</property>
+#end##
+#if ($databaseType.matches("(?i)my(sql)?"))##
+    <property name="dialect">mysqlDialect</property>
+#end##
+#if ($databaseType.matches("(?i)orcl|oracle?"))##
+  <!-- Notice
+    oracle-jdbc-driver not found on maven-repository yet.
+    Add the OJDBC-driver in this project on your own.
+  -->
+    <property name="dialect">oracleDialect</property>
+#end##
+#if ($databaseType.matches("(?i)pg|postgre(s|sql)?"))##
+    <property name="dialect">postgreDialect</property>
+#end##
+  </component>
+#end##
+</components>
