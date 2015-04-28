@@ -131,7 +131,7 @@
     <load-on-startup>4</load-on-startup>
   </servlet>
 #if (!$launchScheduler.matches("(?i)y(es)?|t(rue)?|on"))##
-<!--
+-->
 #end##
 
   <servlet-mapping>

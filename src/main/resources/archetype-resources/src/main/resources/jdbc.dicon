@@ -11,9 +11,11 @@
   <component name="xaDataSource" class="org.seasar.extension.dbcp.impl.XADataSourceImpl">
 #if ($databaseType.matches("(?i)h2(db|database)?"))##
     <property name="driverClassName">"org.h2.Driver"</property>
+    <property name="URL">"jdbc:h2:tcp://${databaseURL}/${databaseName}"</property>
 #end##
 #if ($databaseType.matches("(?i)my(sql)?"))##
     <property name="driverClassName">"com.mysql.jdbc.Driver"</property>
+    <property name="URL">"jdbc:mysql://${databaseURL}/${databaseName}"</property>
 #end##
 #if ($databaseType.matches("(?i)orcl|oracle?"))##
   <!-- Notice
@@ -21,11 +23,13 @@
     Add the OJDBC-driver in this project on your own.
   -->
     <property name="driverClassName">"oracle.jdbc.driver.OracleDriver"</property>
+    <property name="URL">"jdbc:oracle:thin:@${databaseURL}/${databaseName}"</property>
 #end##
 #if ($databaseType.matches("(?i)pg|postgre(s|sql)?"))##
     <property name="driverClassName">"org.postgresql.Driver"</property>
+    <property name="URL">"jdbc:postgresql://${databaseURL}/${databaseName}"</property>
 #end##
-    <property name="URL">"${jdbcConnectionString}"</property>
+    <property name="URL">"${databaseURL}"</property>
     <property name="user">"${databaseUser}"</property>
     <property name="password">"${databasePasswd}"</property>
   </component>
